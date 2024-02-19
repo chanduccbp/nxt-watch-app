@@ -17,12 +17,21 @@ class App extends Component {
     }))
   }
 
+  changeTab = id => {
+    this.setState({activeTab: id})
+  }
+
   render() {
     const {isLightTheme, activeTab} = this.state
 
     return (
       <ThemeContext.Provider
-        value={{isLightTheme, activeTab, changeTheme: this.changeTheme}}
+        value={{
+          isLightTheme,
+          activeTab,
+          changeTheme: this.changeTheme,
+          changeTab: this.changeTab,
+        }}
       >
         <Switch>
           <Route exact path="/login" component={Login} />

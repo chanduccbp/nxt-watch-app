@@ -36,7 +36,7 @@ const Header = props => {
         }
 
         return (
-          <Navbar>
+          <Navbar isLightTheme>
             <LinkItem to="/">
               <AppLogo
                 src={
