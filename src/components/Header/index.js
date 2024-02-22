@@ -64,7 +64,7 @@ const Header = props => {
                 trigger={<CustomButton type="button">Logout</CustomButton>}
               >
                 {close => (
-                  <LogoutContainer>
+                  <LogoutContainer isLightTheme>
                     <LogoutText>Are you sure,you want to logout?</LogoutText>
                     <ButtonsContainer>
                       <CustomButton type="button" onClick={() => close()}>
@@ -86,7 +86,7 @@ const Header = props => {
                 }
               >
                 {close => (
-                  <LogoutContainer>
+                  <LogoutContainer isLightTheme>
                     <LogoutText>Are you sure,you want to logout?</LogoutText>
                     <ButtonsContainer>
                       <CustomButton type="button" onClick={() => close()}>
