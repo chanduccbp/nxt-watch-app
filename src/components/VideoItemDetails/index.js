@@ -24,6 +24,8 @@ import {
   VideoParagraph,
   VideoButtons,
   VideoButton,
+  VideoButtonDislike,
+  VideoButtonSave,
   ButtonText,
   HorizontalLine,
   ChannelContainer,
@@ -179,29 +181,33 @@ class VideoItemDetails extends Component {
 
           return (
             <VideoPlayerContainer>
-              <ReactPlayer url={videoUrl} controls />
-              <VideoText isLightTheme>{title}</VideoText>
+              <ReactPlayer url={videoUrl} controls width="100%" />
+              <VideoText isLightTheme={isLightTheme}>{title}</VideoText>
               <VideoLikesViewsAndSaveContainer>
                 <VideoParagraph>
                   {viewCount} views . {publishedAt}
                 </VideoParagraph>
                 <VideoButtons>
-                  <VideoButton type="button" onClick={this.onClickLike} isLiked>
+                  <VideoButton
+                    type="button"
+                    onClick={this.onClickLike}
+                    isLiked={isLiked}
+                  >
                     <AiOutlineLike />
                     <ButtonText>Like</ButtonText>
                   </VideoButton>
-                  <VideoButton
+                  <VideoButtonDislike
                     type="button"
                     onClick={this.onClickDislike}
-                    isDisliked
+                    isDisliked={isDisliked}
                   >
                     <AiOutlineDislike />
                     <ButtonText>Dislike</ButtonText>
-                  </VideoButton>
-                  <VideoButton isSaved onClick={onClickSave} type="button">
+                  </VideoButtonDislike>
+                  <VideoButtonSave isSaved onClick={onClickSave} type="button">
                     <BiListPlus />
                     <ButtonText>{isSaved ? 'Saved' : 'Save'}</ButtonText>
-                  </VideoButton>
+                  </VideoButtonSave>
                 </VideoButtons>
               </VideoLikesViewsAndSaveContainer>
               <HorizontalLine />
@@ -249,7 +255,7 @@ class VideoItemDetails extends Component {
               <Header />
               <SideBarAndVideo>
                 <SideBar />
-                <VideoContainer isLightTheme>
+                <VideoContainer isLightTheme={isLightTheme}>
                   {this.renderView()}
                 </VideoContainer>
               </SideBarAndVideo>

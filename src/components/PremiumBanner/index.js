@@ -26,7 +26,7 @@ const PremiumBanner = props => {
         </CloseButton>
       </LogoAndClose>
       <BannerText>Buy Nxt Watch Premium prepaid plans with UPI</BannerText>
-      <GetItNowButton>GET IT NOW</GetItNowButton>
+      <GetItNowButton type="button">GET IT NOW</GetItNowButton>
     </BannerContainer>
   )
 }

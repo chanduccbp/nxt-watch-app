@@ -1,5 +1,5 @@
-import {Link} from 'react-router-dom'
 import {
+  LinkItem,
   VideoItem,
   Thumbnail,
   VideoDetailsContainer,
@@ -19,18 +19,18 @@ const SavedAndTrendingVideoCard = props => {
   } = videoDetails
 
   return (
-    <Link to={`/videos/${id}`}>
+    <LinkItem to={`/videos/${id}`}>
       <VideoItem>
         <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
         <VideoDetailsContainer>
-          <Heading isLightTheme>{title}</Heading>
+          <Heading isLightTheme={isLightTheme}>{title}</Heading>
           <Paragraph>{channelName}</Paragraph>
           <Paragraph>
             {viewCount} views . {publishedAt}
           </Paragraph>
         </VideoDetailsContainer>
       </VideoItem>
-    </Link>
+    </LinkItem>
   )
 }
 

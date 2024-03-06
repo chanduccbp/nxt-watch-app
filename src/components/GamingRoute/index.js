@@ -125,7 +125,7 @@ class GamingRoute extends Component {
 
           return (
             <VideosContainer>
-              <TitleContainer isLightTheme>
+              <TitleContainer isLightTheme={isLightTheme}>
                 <SiYoutubegaming />
                 <Title>Gaming</Title>
               </TitleContainer>
@@ -170,7 +170,7 @@ class GamingRoute extends Component {
               <Header />
               <SideBarAndVideos>
                 <SideBar />
-                <VideosListContainer isLightTheme>
+                <VideosListContainer isLightTheme={isLightTheme}>
                   {this.renderView()}
                 </VideosListContainer>
               </SideBarAndVideos>

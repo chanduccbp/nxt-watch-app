@@ -1,4 +1,4 @@
-import {Link, withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {BsMoon} from 'react-icons/bs'
 import {FiSun, FiLogOut} from 'react-icons/fi'
 import Cookies from 'js-cookie'
@@ -12,8 +12,10 @@ import {
   AppControls,
   ThemeButton,
   ProfilePic,
-  CustomButton,
+  CancelButton,
+  ConfirmButton,
   LogoutContainer,
+  LogoutButton,
   LogoutText,
   ButtonsContainer,
   LogoutIconButton,
@@ -61,18 +63,22 @@ const Header = props => {
               />
               <Popup
                 modal
-                trigger={<CustomButton type="button">Logout</CustomButton>}
+                trigger={
+                  <LogoutButton type="button" isLightTheme>
+                    Logout
+                  </LogoutButton>
+                }
               >
                 {close => (
                   <LogoutContainer isLightTheme>
                     <LogoutText>Are you sure,you want to logout?</LogoutText>
                     <ButtonsContainer>
-                      <CustomButton type="button" onClick={() => close()}>
+                      <CancelButton type="button" onClick={() => close()}>
                         Cancel
-                      </CustomButton>
-                      <CustomButton type="button" onClick={onClickLogout}>
+                      </CancelButton>
+                      <ConfirmButton type="button" onClick={onClickLogout}>
                         Confirm
-                      </CustomButton>
+                      </ConfirmButton>
                     </ButtonsContainer>
                   </LogoutContainer>
                 )}
@@ -89,12 +95,12 @@ const Header = props => {
                   <LogoutContainer isLightTheme>
                     <LogoutText>Are you sure,you want to logout?</LogoutText>
                     <ButtonsContainer>
-                      <CustomButton type="button" onClick={() => close()}>
+                      <CancelButton type="button" onClick={() => close()}>
                         Cancel
-                      </CustomButton>
-                      <CustomButton type="button" onClick={onClickLogout}>
+                      </CancelButton>
+                      <ConfirmButton type="button" onClick={onClickLogout}>
                         Confirm
-                      </CustomButton>
+                      </ConfirmButton>
                     </ButtonsContainer>
                   </LogoutContainer>
                 )}

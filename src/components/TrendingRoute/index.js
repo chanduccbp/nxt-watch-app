@@ -173,7 +173,7 @@ class TrendingRoute extends Component {
               <Header />
               <SideBarAndVideos>
                 <SideBar />
-                <VideosListContainer isLightTheme>
+                <VideosListContainer isLightTheme={isLightTheme}>
                   {this.renderView()}
                 </VideosListContainer>
               </SideBarAndVideos>

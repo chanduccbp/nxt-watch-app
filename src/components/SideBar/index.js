@@ -1,4 +1,3 @@
-import {Link} from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
 import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
@@ -7,6 +6,7 @@ import ThemeContext from '../../context/ThemeContext'
 import {
   SidebarContainer,
   TabsListContainer,
+  LinkItem,
   TabItem,
   TabName,
   ContactUsContainer,
@@ -52,17 +52,17 @@ const SideBar = () => (
               }
 
               return (
-                <Link to={eachTab.tabPath}>
+                <LinkItem to={eachTab.tabPath}>
                   <TabItem
                     key={eachTab.id}
                     onClick={onClickingTab}
                     isActive={activeTab === eachTab.id}
-                    isLightTheme
+                    isLightTheme={isLightTheme}
                   >
                     {eachTab.tabIcon}
                     <TabName> {eachTab.tabName} </TabName>
                   </TabItem>
-                </Link>
+                </LinkItem>
               )
             })}
           </TabsListContainer>

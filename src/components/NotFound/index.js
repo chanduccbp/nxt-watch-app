@@ -21,7 +21,7 @@ const NotFound = () => (
           <Header />
           <SidebarAndDescription>
             <SideBar />
-            <DescriptionContainer>
+            <DescriptionContainer isLightTheme>
               <Logo
                 src={
                   isLightTheme

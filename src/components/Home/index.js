@@ -196,15 +196,16 @@ class Home extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isLightTheme} = value
+          const {showBanner} = this.state
 
           return (
-            <HomeContainer data-testid='home'>
+            <HomeContainer data-testid="home">
               <Header />
               <SideBarAndVideos>
                 <SideBar />
                 <VideosContainer>
-                  <PremiumBanner />
-                  <VideosListContainer isLightTheme>
+                  {showBanner && <PremiumBanner />}
+                  <VideosListContainer isLightTheme={isLightTheme}>
                     <InputContainer>
                       <SearchInputBar
                         onChange={this.onChangeSearchInput}

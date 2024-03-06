@@ -1,18 +1,23 @@
-import {Link} from 'react-router-dom'
-import {VideoItem, Thumbnail, Paragraph} from './styledComponents'
+import {
+  LinkItem,
+  VideoItem,
+  Thumbnail,
+  Heading,
+  Paragraph,
+} from './styledComponents'
 
 const GameVideoCard = props => {
   const {videoDetails, isLightTheme} = props
   const {id, title, thumbnailUrl, viewCount} = videoDetails
 
   return (
-    <Link to={`/videos/${id}`}>
+    <LinkItem to={`/videos/${id}`}>
       <VideoItem>
         <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
-        <Paragraph isLightTheme>{title}</Paragraph>
+        <Heading isLightTheme={isLightTheme}>{title}</Heading>
         <Paragraph>{viewCount} Watching Worldwide</Paragraph>
       </VideoItem>
-    </Link>
+    </LinkItem>
   )
 }
 

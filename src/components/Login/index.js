@@ -119,7 +119,7 @@ class Login extends Component {
 
           return (
             <LoginContainer isLightTheme>
-              <LoginForm onSubmit={this.onSubmitForm}>
+              <LoginForm onSubmit={this.onSubmitForm} isLightTheme>
                 <AppLogo
                   src={
                     isLightTheme
