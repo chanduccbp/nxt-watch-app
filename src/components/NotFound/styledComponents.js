@@ -4,8 +4,8 @@ export const NotFoundContainer = styled.div`
   min-height: 100vh;
 `
 export const DescriptionContainer = styled.div`
-  min-height: 90vh;
   width: 80%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,8 +20,9 @@ export const Paragraph = styled.p`
   color: #475569;
 `
 export const Logo = styled.img`
-  width: 50%;
+  width: 40%;
 `
 export const SidebarAndDescription = styled.div`
+  min-height: 90vh;
   display: flex;
 `

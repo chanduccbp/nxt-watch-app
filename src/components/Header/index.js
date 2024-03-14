@@ -31,14 +31,18 @@ const Header = props => {
   return (
     <ThemeContext.Consumer>
       {value => {
-        const {isLightTheme, changeTheme} = value
+        const {isLightTheme, changeTheme, changeTab} = value
 
         const onClickingTheme = () => {
           changeTheme()
         }
 
+        const onClickingLogo = () => {
+          changeTab('HOME')
+        }
+
         return (
-          <Navbar isLightTheme>
+          <Navbar isLightTheme={isLightTheme}>
             <LinkItem to="/">
               <AppLogo
                 src={
@@ -47,6 +51,7 @@ const Header = props => {
                     : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                 }
                 alt="website logo"
+                onClick={onClickingLogo}
               />
             </LinkItem>
             <AppControls>
@@ -55,7 +60,11 @@ const Header = props => {
                 onClick={onClickingTheme}
                 data-testid="theme"
               >
-                {isLightTheme ? <BsMoon /> : <FiSun />}
+                {isLightTheme ? (
+                  <BsMoon size={40} />
+                ) : (
+                  <FiSun size={40} color="white" />
+                )}
               </ThemeButton>
               <ProfilePic
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
@@ -70,7 +79,7 @@ const Header = props => {
                 }
               >
                 {close => (
-                  <LogoutContainer isLightTheme>
+                  <LogoutContainer isLightTheme={isLightTheme}>
                     <LogoutText>Are you sure,you want to logout?</LogoutText>
                     <ButtonsContainer>
                       <CancelButton type="button" onClick={() => close()}>
@@ -92,7 +101,7 @@ const Header = props => {
                 }
               >
                 {close => (
-                  <LogoutContainer isLightTheme>
+                  <LogoutContainer isLightTheme={isLightTheme}>
                     <LogoutText>Are you sure,you want to logout?</LogoutText>
                     <ButtonsContainer>
                       <CancelButton type="button" onClick={() => close()}>

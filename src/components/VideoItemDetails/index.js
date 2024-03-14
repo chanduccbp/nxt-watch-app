@@ -204,7 +204,11 @@ class VideoItemDetails extends Component {
                     <AiOutlineDislike />
                     <ButtonText>Dislike</ButtonText>
                   </VideoButtonDislike>
-                  <VideoButtonSave isSaved onClick={onClickSave} type="button">
+                  <VideoButtonSave
+                    isSaved={isSaved}
+                    onClick={onClickSave}
+                    type="button"
+                  >
                     <BiListPlus />
                     <ButtonText>{isSaved ? 'Saved' : 'Save'}</ButtonText>
                   </VideoButtonSave>
@@ -215,12 +219,16 @@ class VideoItemDetails extends Component {
                 <ChannelProfile src={profileImageUrl} alt="channel logo" />
                 <ChannelDetails>
                   <ChannelNameAndSubscribers>
-                    <VideoText isLightTheme>{channelName}</VideoText>
+                    <VideoText isLightTheme={isLightTheme}>
+                      {channelName}
+                    </VideoText>
                     <VideoParagraph>
                       {subscriberCount} subscribers
                     </VideoParagraph>
                   </ChannelNameAndSubscribers>
-                  <VideoText isLightTheme>{description}</VideoText>
+                  <VideoText isLightTheme={isLightTheme}>
+                    {description}
+                  </VideoText>
                 </ChannelDetails>
               </ChannelContainer>
             </VideoPlayerContainer>

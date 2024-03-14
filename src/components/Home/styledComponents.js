@@ -9,16 +9,17 @@ export const SideBarAndVideos = styled.div`
 `
 
 export const VideosContainer = styled.div`
-  height: 100%;
+  min-height: 100vh;
   width: 80%;
 `
 export const VideosListContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  height: 80%;
+  align-items: flex-start;
+  min-height: 100vh;
   width: 100%;
+  padding: 20px;
   background-color: ${props => (props.isLightTheme ? '#ebebeb' : '#000000')};
 `
 export const InputContainer = styled.div`
@@ -41,23 +42,23 @@ export const SearchButton = styled.button`
   background-color: #cccccc;
 `
 export const LoaderContainer = styled.div`
-  flex-grow: 1;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
 `
 export const FailureViewContainer = styled.div`
-  flex-grow: 1;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   font-family: 'roboto';
 `
 export const FailureViewPic = styled.img`
-  width: 50%;
+  width: 45%;
 `
 export const Heading = styled.h1`
   color: ${props => (props.isLightTheme ? '#181818' : '#ffffff')};
@@ -74,12 +75,12 @@ export const RetryButton = styled.button`
   color: #ffffff;
 `
 export const NoResultsViewContainer = styled.div`
-  flex-grow: 1;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
   font-family: 'roboto';
 `
 export const NoResultsViewPic = styled.img`
@@ -89,9 +90,9 @@ export const NoResultsViewPic = styled.img`
 export const VideoThumbnailsList = styled.ul`
   list-style-type: none;
   padding-left: 0px;
-  flex-grow: 1;
-  width: 80%;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
 `

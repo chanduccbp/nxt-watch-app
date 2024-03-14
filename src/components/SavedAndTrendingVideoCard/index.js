@@ -8,7 +8,7 @@ import {
 } from './styledComponents'
 
 const SavedAndTrendingVideoCard = props => {
-  const {videoDetails, isLightTheme} = props
+  const {videoDetails, isLightTheme, onClickingVideo} = props
   const {
     id,
     title,
@@ -20,7 +20,7 @@ const SavedAndTrendingVideoCard = props => {
 
   return (
     <LinkItem to={`/videos/${id}`}>
-      <VideoItem>
+      <VideoItem onClick={onClickingVideo}>
         <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
         <VideoDetailsContainer>
           <Heading isLightTheme={isLightTheme}>{title}</Heading>

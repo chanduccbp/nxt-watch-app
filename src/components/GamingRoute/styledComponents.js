@@ -8,28 +8,28 @@ export const SideBarAndVideos = styled.div`
   display: flex;
 `
 export const VideosListContainer = styled.div`
-  height: 100%;
+  min-height: 100vh;
   width: 80%;
-  background-color: ${props => (props.isLightTheme ? '#ebebeb' : '#000000')};
+  background-color: ${props => (props.isLightTheme ? '#ffffff' : '#000000')};
 `
 export const LoaderContainer = styled.div`
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 `
 export const FailureViewContainer = styled.div`
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   font-family: 'roboto';
 `
 export const FailureViewPic = styled.img`
-  width: 50%;
+  width: 40%;
 `
 export const Heading = styled.h1`
   color: ${props => (props.isLightTheme ? '#181818' : '#ffffff')};
@@ -46,26 +46,28 @@ export const RetryButton = styled.button`
   color: #ffffff;
 `
 export const VideosContainer = styled.div`
-  width: 80%;
-  height: 100%;
+  width: 100%;
+  min-height: 100vh;
 `
 export const TitleContainer = styled.div`
-  height: 20%;
+  height: 15vh;
   display: flex;
   align-items: center;
   padding: 20px;
-  background-color: ${props => (props.isLightTheme ? ' #ebebeb' : '#231f20')};
+  padding-left: 25px;
+  background-color: ${props => (props.isLightTheme ? ' #ebebeb' : '#212121')};
 `
 export const Title = styled.h1`
   color: ${props => (props.isLightTheme ? '#181818' : '#ffffff')};
+  margin-left: 10px;
 `
 export const VideoThumbnailsList = styled.ul`
   padding-left: 0px;
   list-style-type: none;
   width: 100%;
-  height: 80%;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 `

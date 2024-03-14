@@ -5,12 +5,12 @@ import {
   VideoDetailsContainer,
   ProfilePic,
   ChannelDetails,
-  Heading,
+  VideoHeading,
   Paragraph,
 } from './styledComponents'
 
 const VideoCard = props => {
-  const {videoDetails, isLightTheme} = props
+  const {videoDetails, isLightTheme, onClickingVideo} = props
   const {
     id,
     title,
@@ -23,12 +23,12 @@ const VideoCard = props => {
 
   return (
     <LinkItem to={`/videos/${id}`}>
-      <VideoItem>
+      <VideoItem onClick={onClickingVideo}>
         <Thumbnail src={thumbnailUrl} alt="video thumbnail" />
         <VideoDetailsContainer>
           <ProfilePic src={profileImageUrl} alt="channel logo" />
           <ChannelDetails>
-            <Heading isLightTheme={isLightTheme}>{title}</Heading>
+            <VideoHeading isLightTheme={isLightTheme}>{title}</VideoHeading>
             <Paragraph>{channelName}</Paragraph>
             <Paragraph>
               {viewCount} views . {publishedAt}

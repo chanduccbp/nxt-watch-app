@@ -5,12 +5,12 @@ export const LinkItem = styled(Link)`
   text-decoration: none;
 `
 
-export const Navbar = styled.navbar`
+export const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  min-height: 10vh;
+  padding: 15px;
+  height: 15vh;
   font-family: 'roboto';
   background-color: ${props => (props.isLightTheme ? '#f1f5f9' : '#231f20')};
 `
@@ -19,7 +19,7 @@ export const AppControls = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 25%;
+  width: 15%;
 `
 
 export const LogoutButton = styled.button`
@@ -51,6 +51,7 @@ export const LogoutContainer = styled.div`
   color: ${props => (props.isLightTheme ? '#00306e' : '#ffffff')};
   font-family: 'roboto';
   border-radius: 5px;
+  width: 100%;
 `
 export const ButtonsContainer = styled.div`
   display: flex;
@@ -64,6 +65,7 @@ export const CancelButton = styled.button`
   color: #94a3b8;
   height: 35px;
   padding: 5px;
+  margin: 10px;
 `
 export const ConfirmButton = styled.button`
   background-color: #3b82f6;
@@ -72,12 +74,18 @@ export const ConfirmButton = styled.button`
   color: #ffffff;
   height: 35px;
   padding: 5px;
+  margin: 10px;
 `
-export const AppLogo = styled.img``
+export const AppLogo = styled.img`
+  width: 50%;
+`
 
 export const ThemeButton = styled.button`
   border: none;
+  background-color: transparent;
 `
-export const ProfilePic = styled.img``
+export const ProfilePic = styled.img`
+  width: 15%;
+`
 
 export const LogoutText = styled.p``

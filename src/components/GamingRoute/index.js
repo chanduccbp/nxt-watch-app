@@ -101,7 +101,9 @@ class GamingRoute extends Component {
               }
               alt="failure view"
             />
-            <Heading isLightTheme>Oops! Something Went Wrong</Heading>
+            <Heading isLightTheme={isLightTheme}>
+              Oops! Something Went Wrong
+            </Heading>
             <Paragraph isLightTheme>
               We are having some trouble to complete your request.Please try
               again.
@@ -121,13 +123,17 @@ class GamingRoute extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {isLightTheme} = value
+          const {isLightTheme, changeTab} = value
+
+          const onClickingVideo = () => {
+            changeTab('')
+          }
 
           return (
             <VideosContainer>
               <TitleContainer isLightTheme={isLightTheme}>
-                <SiYoutubegaming />
-                <Title>Gaming</Title>
+                <SiYoutubegaming size={50} color="red" />
+                <Title isLightTheme={isLightTheme}>Gaming</Title>
               </TitleContainer>
               <VideoThumbnailsList>
                 {videosList.map(eachVideo => (
@@ -135,6 +141,7 @@ class GamingRoute extends Component {
                     key={eachVideo.id}
                     videoDetails={eachVideo}
                     isLightTheme={isLightTheme}
+                    onClickingVideo={onClickingVideo}
                   />
                 ))}
               </VideoThumbnailsList>

@@ -44,7 +44,7 @@ const SideBar = () => (
       const {isLightTheme, activeTab, changeTab} = value
 
       return (
-        <SidebarContainer isLightTheme>
+        <SidebarContainer isLightTheme={isLightTheme}>
           <TabsListContainer>
             {tabsList.map(eachTab => {
               const onClickingTab = () => {
@@ -57,16 +57,18 @@ const SideBar = () => (
                     key={eachTab.id}
                     onClick={onClickingTab}
                     isActive={activeTab === eachTab.id}
-                    isLightTheme={isLightTheme}
                   >
                     {eachTab.tabIcon}
-                    <TabName> {eachTab.tabName} </TabName>
+                    <TabName isLightTheme={isLightTheme}>
+                      {' '}
+                      {eachTab.tabName}{' '}
+                    </TabName>
                   </TabItem>
                 </LinkItem>
               )
             })}
           </TabsListContainer>
-          <ContactUsContainer>
+          <ContactUsContainer isLightTheme={isLightTheme}>
             <Heading>CONTACT US</Heading>
             <LogoContainer>
               <Logo

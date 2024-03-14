@@ -13,11 +13,12 @@ export const NoSavedVideosContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 100%;
+  min-height: 100vh;
   font-family: 'roboto';
+  background-color: ${props => (props.isLightTheme ? ' #ebebeb' : '#0f0f0f')};
 `
 export const NoSavedVideosPic = styled.img`
-  width: 80%;
+  width: 40%;
 `
 export const Heading = styled.h1`
   color: ${props => (props.isLightTheme ? '#231f20' : '#ffffff')};
@@ -27,25 +28,28 @@ export const Paragraph = styled.p`
 `
 export const VideosContainer = styled.div`
   width: 80%;
-  height: 100%;
+  min-height: 100vh;
+  background-color: ${props => (props.isLightTheme ? ' #ffffff' : '#0f0f0f')};
 `
 export const TitleContainer = styled.div`
-  height: 20%;
+  height: 15vh;
   display: flex;
   align-items: center;
   padding: 20px;
-  background-color: ${props => (props.isLightTheme ? ' #ebebeb' : '#231f20')};
+  padding-left: 25px;
+  background-color: ${props => (props.isLightTheme ? ' #ebebeb' : '#212121')};
 `
 export const Title = styled.h1`
   color: ${props => (props.isLightTheme ? '#181818' : '#ffffff')};
+  margin-left: 10px;
 `
 export const VideosList = styled.ul`
   padding-left: 0px;
   list-style-type: none;
   width: 100%;
-  height: 80%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  align-items: flex-start;
+  padding: 25px;
 `

@@ -124,8 +124,10 @@ class Home extends Component {
               }
               alt="failure view"
             />
-            <Heading isLightTheme>Oops! Something Went Wrong</Heading>
-            <Paragraph isLightTheme>
+            <Heading isLightTheme={isLightTheme}>
+              Oops! Something Went Wrong
+            </Heading>
+            <Paragraph isLightTheme={isLightTheme}>
               We are having some trouble to complete your request.Please try
               again.
             </Paragraph>
@@ -145,7 +147,11 @@ class Home extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {isLightTheme} = value
+          const {isLightTheme, changeTab} = value
+
+          const onClickingVideo = () => {
+            changeTab('')
+          }
 
           return showNoResultsView ? (
             <NoResultsViewContainer>
@@ -153,8 +159,10 @@ class Home extends Component {
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
                 alt="no videos"
               />
-              <Heading isLightTheme>No Search results found</Heading>
-              <Paragraph isLightTheme>
+              <Heading isLightTheme={isLightTheme}>
+                No Search results found
+              </Heading>
+              <Paragraph isLightTheme={isLightTheme}>
                 Try different key words or remove search filter
               </Paragraph>
               <RetryButton type="button" onClick={this.onClickRetry}>
@@ -168,6 +176,7 @@ class Home extends Component {
                   key={eachVideo.id}
                   videoDetails={eachVideo}
                   isLightTheme={isLightTheme}
+                  onClickingVideo={onClickingVideo}
                 />
               ))}
             </VideoThumbnailsList>
@@ -196,7 +205,7 @@ class Home extends Component {
       <ThemeContext.Consumer>
         {value => {
           const {isLightTheme} = value
-          const {showBanner} = this.state
+          const {showBanner, searchInput} = this.state
 
           return (
             <HomeContainer data-testid="home">
@@ -204,12 +213,16 @@ class Home extends Component {
               <SideBarAndVideos>
                 <SideBar />
                 <VideosContainer>
-                  {showBanner && <PremiumBanner />}
+                  {showBanner && (
+                    <PremiumBanner closeBanner={this.closeBanner} />
+                  )}
                   <VideosListContainer isLightTheme={isLightTheme}>
                     <InputContainer>
                       <SearchInputBar
+                        type="search"
                         onChange={this.onChangeSearchInput}
                         placeHolder="Search"
+                        value={searchInput}
                       />
                       <SearchButton
                         type="button"

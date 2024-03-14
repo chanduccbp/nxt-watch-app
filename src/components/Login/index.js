@@ -6,8 +6,11 @@ import {
   LoginContainer,
   LoginForm,
   AppLogo,
+  UserNameContainer,
+  PasswordContainer,
   Label,
   Input,
+  ShowPasswordContainer,
   Checkbox,
   ShowPasswordLabel,
   LoginButton,
@@ -52,7 +55,7 @@ class Login extends Component {
   }
 
   onSubmitForm = async event => {
-    event.PreventDefault()
+    event.preventDefault()
     const {username, password} = this.state
     const userDetails = {username, password}
     const url = 'https://apis.ccbp.in/login'
@@ -72,36 +75,61 @@ class Login extends Component {
   renderUsernameField = () => {
     const {username} = this.state
     return (
-      <>
-        <Label htmlFor="username">USERNAME</Label>
-        <Input
-          type="text"
-          id="username"
-          value={username}
-          onChange={this.onChangeUsername}
-        />
-      </>
+      <ThemeContext.Consumer>
+        {value => {
+          const {isLightTheme} = value
+          return (
+            <UserNameContainer>
+              <Label htmlFor="username" isLightTheme={isLightTheme}>
+                USERNAME
+              </Label>
+              <Input
+                type="text"
+                id="username"
+                value={username}
+                onChange={this.onChangeUsername}
+              />
+            </UserNameContainer>
+          )
+        }}
+      </ThemeContext.Consumer>
     )
   }
 
   renderPasswordField = () => {
     const {password, showPassword} = this.state
     return (
-      <>
-        <Label htmlFor="password">PASSWORD</Label>
-        <Input
-          type={showPassword ? 'text' : 'password'}
-          id="password"
-          value={password}
-          onChange={this.onChangePassword}
-        />
-        <Checkbox
-          type="checkbox"
-          id="checkbox"
-          onChange={this.onChangeShowPassword}
-        />
-        <ShowPasswordLabel htmlFor="checkbox">Show Password</ShowPasswordLabel>
-      </>
+      <ThemeContext.Consumer>
+        {value => {
+          const {isLightTheme} = value
+          return (
+            <PasswordContainer>
+              <Label htmlFor="password" isLightTheme={isLightTheme}>
+                PASSWORD
+              </Label>
+              <Input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                value={password}
+                onChange={this.onChangePassword}
+              />
+              <ShowPasswordContainer>
+                <Checkbox
+                  type="checkbox"
+                  id="checkbox"
+                  onChange={this.onChangeShowPassword}
+                />
+                <ShowPasswordLabel
+                  htmlFor="checkbox"
+                  isLightTheme={isLightTheme}
+                >
+                  Show Password
+                </ShowPasswordLabel>
+              </ShowPasswordContainer>
+            </PasswordContainer>
+          )
+        }}
+      </ThemeContext.Consumer>
     )
   }
 

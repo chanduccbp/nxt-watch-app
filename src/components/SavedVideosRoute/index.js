@@ -20,8 +20,12 @@ import {
 const SavedVideosRoute = () => (
   <ThemeContext.Consumer>
     {value => {
-      const {isLightTheme, savedVideos} = value
+      const {isLightTheme, savedVideos, changeTab} = value
       const noSavedVideos = savedVideos.length === 0
+
+      const onClickingVideo = () => {
+        changeTab('')
+      }
 
       return (
         <SavedVideosContainer data-testid="savedVideos">
@@ -29,21 +33,23 @@ const SavedVideosRoute = () => (
           <SavedVideosAndSidebar>
             <SideBar />
             {noSavedVideos ? (
-              <NoSavedVideosContainer isLightTheme>
+              <NoSavedVideosContainer isLightTheme={isLightTheme}>
                 <NoSavedVideosPic
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
                   alt="no saved videos"
                 />
-                <Heading>No saved videos found</Heading>
+                <Heading isLightTheme={isLightTheme}>
+                  No saved videos found
+                </Heading>
                 <Paragraph>
                   You can save your videos while watching them
                 </Paragraph>
               </NoSavedVideosContainer>
             ) : (
-              <VideosContainer>
-                <TitleContainer isLightTheme>
-                  <HiFire />
-                  <Title>Saved Videos</Title>
+              <VideosContainer isLightTheme={isLightTheme}>
+                <TitleContainer isLightTheme={isLightTheme}>
+                  <HiFire size={50} color="red" />
+                  <Title isLightTheme={isLightTheme}>Saved Videos</Title>
                 </TitleContainer>
                 <VideosList>
                   {savedVideos.map(eachVideo => (
@@ -51,6 +57,7 @@ const SavedVideosRoute = () => (
                       key={eachVideo.id}
                       videoDetails={eachVideo}
                       isLightTheme={isLightTheme}
+                      onClickingVideo={onClickingVideo}
                     />
                   ))}
                 </VideosList>

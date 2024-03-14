@@ -5,17 +5,17 @@ export const BannerContainer = styled.div`
   background-size: cover;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 20px;
   font-family: 'roboto';
   color: #313131;
-  height: 20%;
   width: 100%;
 `
 export const LogoAndClose = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 `
 export const CloseButton = styled.button`
   border: none;
@@ -27,6 +27,8 @@ export const GetItNowButton = styled.button`
   height: 35px;
   padding: 5px;
 `
-export const BannerLogo = styled.img``
+export const BannerLogo = styled.img`
+  width: 15%;
+`
 
 export const BannerText = styled.h1``

@@ -104,8 +104,10 @@ class TrendingRoute extends Component {
               }
               alt="failure view"
             />
-            <Heading isLightTheme>Oops! Something Went Wrong</Heading>
-            <Paragraph isLightTheme>
+            <Heading isLightTheme={isLightTheme}>
+              Oops! Something Went Wrong
+            </Heading>
+            <Paragraph isLightTheme={isLightTheme}>
               We are having some trouble to complete your request.Please try
               again.
             </Paragraph>
@@ -124,13 +126,17 @@ class TrendingRoute extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {isLightTheme} = value
+          const {isLightTheme, changeTab} = value
+
+          const onClickingVideo = () => {
+            changeTab('')
+          }
 
           return (
-            <VideosContainer>
-              <TitleContainer isLightTheme>
-                <HiFire />
-                <Title>Trending</Title>
+            <VideosContainer isLightTheme={isLightTheme}>
+              <TitleContainer isLightTheme={isLightTheme}>
+                <HiFire size={50} color="red" />
+                <Title isLightTheme={isLightTheme}>Trending</Title>
               </TitleContainer>
               <VideoThumbnailsList>
                 {videosList.map(eachVideo => (
@@ -138,6 +144,7 @@ class TrendingRoute extends Component {
                     key={eachVideo.id}
                     videoDetails={eachVideo}
                     isLightTheme={isLightTheme}
+                    onClickingVideo={onClickingVideo}
                   />
                 ))}
               </VideoThumbnailsList>

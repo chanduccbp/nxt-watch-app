@@ -21,7 +21,7 @@ const NotFound = () => (
           <Header />
           <SidebarAndDescription>
             <SideBar />
-            <DescriptionContainer isLightTheme>
+            <DescriptionContainer isLightTheme={isLightTheme}>
               <Logo
                 src={
                   isLightTheme
@@ -30,7 +30,7 @@ const NotFound = () => (
                 }
                 alt="not found"
               />
-              <Heading isLightTheme>Page Not Found</Heading>
+              <Heading isLightTheme={isLightTheme}>Page Not Found</Heading>
               <Paragraph isLightTheme>
                 We are sorry,the page you requested could not be found.
               </Paragraph>

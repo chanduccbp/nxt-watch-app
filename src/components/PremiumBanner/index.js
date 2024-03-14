@@ -22,7 +22,7 @@ const PremiumBanner = props => {
           alt="nxt watch logo"
         />
         <CloseButton type="button" data-testid="close" onClick={onClickClose}>
-          <AiOutlineClose />
+          <AiOutlineClose size={15} />
         </CloseButton>
       </LogoAndClose>
       <BannerText>Buy Nxt Watch Premium prepaid plans with UPI</BannerText>
